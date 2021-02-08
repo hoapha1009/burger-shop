@@ -1,7 +1,6 @@
-import React from "react";
-import "./App.scss";
-import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
-import Layout from "./components/Layout/Layout";
+import React from 'react';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+import Layout from './components/Layout/Layout';
 
 class App extends React.Component {
     render() {
