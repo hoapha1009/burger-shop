@@ -1,13 +1,13 @@
-import React from "react";
-import "./BurgerControls.scss";
-import BurgerControl from "./BurgerControl/BurgerControl";
+import React from 'react';
+import './BurgerControls.scss';
+import BurgerControl from './BurgerControl/BurgerControl';
 
 const BurgerControls = (props) => {
     const controls = [
-        { label: "Salad", type: "salad" },
-        { label: "Bacon", type: "bacon" },
-        { label: "Cheese", type: "cheese" },
-        { label: "Meat", type: "meat" },
+        { label: 'Salad', type: 'salad' },
+        { label: 'Bacon', type: 'bacon' },
+        { label: 'Cheese', type: 'cheese' },
+        { label: 'Meat', type: 'meat' },
     ];
     return (
         <div className="BuildControls">
@@ -25,7 +25,11 @@ const BurgerControls = (props) => {
                     />
                 );
             })}
-            <button disabled={!props.purchasable} className="OrderButton">
+            <button
+                onClick={props.ordered}
+                disabled={!props.purchasable}
+                className="OrderButton"
+            >
                 ORDER NOW
             </button>
         </div>
