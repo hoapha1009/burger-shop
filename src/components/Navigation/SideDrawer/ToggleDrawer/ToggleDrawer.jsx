@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ToggleDrawer.scss';
 
 const ToggleDrawer = (props) => {
@@ -9,6 +10,10 @@ const ToggleDrawer = (props) => {
             <div></div>
         </div>
     );
+};
+
+ToggleDrawer.propType = {
+    clicked: PropTypes.func,
 };
 
 export default ToggleDrawer;
