@@ -17,7 +17,6 @@ const withErrorHandler = (WrapperComponent, instance) => {
             this.resInterceptors = instance.interceptors.response.use(
                 (res) => res,
                 (error) => {
-                    console.log('err: ', error);
                     this.setState({ error: error });
                 }
             );
@@ -33,7 +32,6 @@ const withErrorHandler = (WrapperComponent, instance) => {
         };
 
         render() {
-            console.log(this.state);
             return (
                 <Aux>
                     <Modal

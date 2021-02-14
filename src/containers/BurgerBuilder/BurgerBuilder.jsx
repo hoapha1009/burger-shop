@@ -88,24 +88,38 @@ class BurgerBuilder extends Component {
 
     continuePurchaseHandler = () => {
         // alert('You continue!!!');
-        this.setState({ loading: true });
-        const order = {
-            ingredient: this.state.ingredients,
-            totalPrice: this.state.totalPrice.toFixed(2),
-            customer: {
-                name: 'HoangPham',
-                country: 'VietNam',
-                address: 'VietNam',
-                email: 'test@test.com',
-            },
-            deliveryMethod: 'fastest',
-        };
-        instance
-            .post('/orders', order)
-            .then((res) => this.setState({ loading: false, purchasing: false }))
-            .catch((err) =>
-                this.setState({ loading: false, purchasing: false })
+        // this.setState({ loading: true });
+        // const order = {
+        //     ingredient: this.state.ingredients,
+        //     totalPrice: this.state.totalPrice.toFixed(2),
+        //     customer: {
+        //         name: 'HoangPham',
+        //         country: 'VietNam',
+        //         address: 'VietNam',
+        //         email: 'test@test.com',
+        //     },
+        //     deliveryMethod: 'fastest',
+        // };
+        // instance
+        //     .post('/orders.json', order)
+        //     .then((res) => this.setState({ loading: false, purchasing: false }))
+        //     .catch((err) =>
+        //         this.setState({ loading: false, purchasing: false })
+        //     );
+        const queryParams = [];
+        for (let i in this.state.ingredients) {
+            queryParams.push(
+                encodeURIComponent(i) +
+                    '=' +
+                    encodeURIComponent(this.state.ingredients[i])
             );
+        }
+        const queryString = queryParams.join('&');
+
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString,
+        });
     };
 
     render() {
